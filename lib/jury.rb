@@ -14,7 +14,7 @@ class Jury
 		@members.each do |member|
 			vote = finalists.sample
 			votes[vote] += 1
-			puts "#{member}: #{vote}"
+			print_member_vote(member, vote)
 		end
 		return votes
 	end
@@ -27,6 +27,11 @@ class Jury
 
 	def announce_winner(final_votes)
 		final_votes.max_by { |finalist, votes| votes }.first
+	end
+
+	private
+	def print_member_vote(member, vote)
+		puts "#{member} has voted for #{vote}."
 	end
 
 end

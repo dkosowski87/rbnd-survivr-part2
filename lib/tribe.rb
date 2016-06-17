@@ -1,5 +1,5 @@
 class Tribe
-	attr_accessor :name, :members
+	attr_reader :name, :members
 
 	def initialize name:, members:
 		@name = name
