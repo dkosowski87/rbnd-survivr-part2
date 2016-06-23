@@ -10,7 +10,9 @@ class Game
 	end
 
 	def immunity_challenge
-		@tribes.sample
+		immune_tribe = @tribes.sample
+		print_immunity_challenge_message(immune_tribe)
+		return immune_tribe
 	end
 
 	def clear_tribes
@@ -19,14 +21,24 @@ class Game
 
 	def merge(name)
 		members = []
-		@tribes.each do |tribe|
-			members.concat tribe.members
-		end
-		@combined_tribe = Tribe.new name: name, members: members
+		@tribes.each { |tribe| members.concat tribe.members }
+		add_tribe Tribe.new(name: name, members: members)
+		tribes.last
 	end
 
 	def individual_immunity_challenge
-		@tribes.first.members.sample
+		immune_member = @tribes.last.members.sample
+		print_individual_immunity_challenge_message(immune_member)
+		return immune_member
+	end
+
+	private
+	def print_immunity_challenge_message(immune_tribe)
+		puts "#{immune_tribe} has won the immunity challenge."
+	end
+
+	def print_individual_immunity_challenge_message(immune_member)
+		puts "#{immune_member} has won the individual immunity challenge."
 	end
 
 end
