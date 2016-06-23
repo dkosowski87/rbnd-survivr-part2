@@ -1,8 +1,8 @@
 class Game
 	attr_reader :tribes
 
-	def initialize(tribe1, tribe2)
-		@tribes = [tribe1, tribe2]
+	def initialize(*tribes)
+		@tribes = tribes
 	end
 
 	def add_tribe(tribe)
@@ -20,8 +20,7 @@ class Game
 	end
 
 	def merge(name)
-		members = []
-		@tribes.each { |tribe| members.concat tribe.members }
+		members = @tribes.map(&:members).flatten
 		add_tribe Tribe.new(name: name, members: members)
 		tribes.last
 	end
