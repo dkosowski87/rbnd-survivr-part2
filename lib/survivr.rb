@@ -22,31 +22,34 @@ require_relative "jury"
 #This is where you will write your code for the three phases
 def phase_one
 	puts "\n"
-	puts "Stage 1"
+	puts "STAGE 1"
+	puts "\n"
 	8.times do
-		puts "-" * 60
 		immune_tribe = @borneo.immunity_challenge
 		@borneo.tribes.find { |tribe| tribe != immune_tribe }.tribal_council
+		puts "-" * 60
 	end
 end
 
 def phase_two
 	puts "\n"
-	puts "Stage 2"
+	puts "STAGE 2"
+	puts "\n"
 	3.times do
-		puts "-" * 60
 		immune_member = @borneo.individual_immunity_challenge
 		@merge_tribe.tribal_council immune_member: immune_member
+		puts "-" * 60
 	end
 end
 
 def phase_three
 	puts "\n"
-	puts "Stage 3"
+	puts "STAGE 3"
+	puts "\n"
 	7.times do
-		puts "-" * 60
 		immune_member = @borneo.individual_immunity_challenge
 		@jury.add_member @merge_tribe.tribal_council(immune_member: immune_member)
+		puts "-" * 60
 	end
 end
 
