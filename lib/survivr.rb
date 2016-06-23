@@ -1,3 +1,4 @@
+require 'colorizr'
 require_relative "game"
 require_relative "tribe"
 require_relative "contestant"
@@ -27,7 +28,6 @@ def phase_one
 		immune_tribe = @borneo.immunity_challenge
 		@borneo.tribes.find { |tribe| tribe != immune_tribe }.tribal_council
 	end
-	puts "\n"
 end
 
 def phase_two
@@ -38,7 +38,6 @@ def phase_two
 		immune_member = @borneo.individual_immunity_challenge
 		@merge_tribe.tribal_council immune_member: immune_member
 	end
-	puts "\n"
 end
 
 def phase_three
@@ -49,7 +48,6 @@ def phase_three
 		immune_member = @borneo.individual_immunity_challenge
 		@jury.add_member @merge_tribe.tribal_council(immune_member: immune_member)
 	end
-	puts "\n"
 end
 
 

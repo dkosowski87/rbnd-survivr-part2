@@ -42,7 +42,8 @@ class Jury
 	end
 
 	def print_winner_message(winner)
-		puts "The winner is #{winner}."
+		puts "*" * 30
+		puts "The winner is #{winner}.".green
 	end
 
 end

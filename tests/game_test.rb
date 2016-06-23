@@ -1,4 +1,5 @@
 require 'minitest/autorun'
+require 'colorizr'
 require_relative "../lib/game"
 require_relative "../lib/tribe"
 require_relative "../lib/contestant"

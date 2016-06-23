@@ -38,7 +38,7 @@ class Game
 	end
 
 	def print_individual_immunity_challenge_message(immune_member)
-		puts "#{immune_member} has won the individual immunity challenge."
+		puts "#{immune_member.to_s.green} has won the individual immunity challenge."
 	end
 
 end
